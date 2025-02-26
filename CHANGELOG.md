@@ -5,6 +5,7 @@
 ### Features
 
 * Creating alerting
+* Adding adding insertion of email for sns email
 
 ## 0.0.2
 
