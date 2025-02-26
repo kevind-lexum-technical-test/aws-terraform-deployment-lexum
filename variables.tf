@@ -27,3 +27,10 @@ variable "account_id" {
   type        = string
   sensitive   = false
 }
+
+variable "sns_alert_email" {
+  description = "Email address to receive CloudWatch alerts"
+  type        = string
+  sensitive   = false
+  default     = "kevin.diep94@gmail.com"
+}

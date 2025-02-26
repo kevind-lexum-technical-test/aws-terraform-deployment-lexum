@@ -52,6 +52,7 @@ No resources.
 | <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | AWS Secret Key | `string` | n/a | yes |
 | <a name="input_rds_db_password"></a> [rds\_db\_password](#input\_rds\_db\_password) | RDS password | `string` | n/a | yes |
 | <a name="input_rds_db_username"></a> [rds\_db\_username](#input\_rds\_db\_username) | RDS username | `string` | n/a | yes |
+| <a name="input_sns_alert_email"></a> [sns\_alert\_email](#input\_sns\_alert\_email) | Email address to receive CloudWatch alerts | `string` | `"kevin.diep94@gmail.com"` | no |
 
 ## Outputs
 

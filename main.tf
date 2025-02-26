@@ -42,7 +42,7 @@ module "lexum" {
   java_server_image_id      = "ami-05073582a4b03d785"
   java_server_instance_type = "t2.micro"
 
-  sns_alert_email = "kevin.diep94@gmail.com"
+  sns_alert_email = var.sns_alert_email
 
   rds_identifier  = "lexum-rds"
   rds_db_username = var.rds_db_username
