@@ -1,5 +1,11 @@
 # ChangeLog
 
+## 0.0.2
+
+### Features
+
+* Creating ec2, vpc, rds, ssm, ecr
+
 ## 0.0.1
 
 ### Features
