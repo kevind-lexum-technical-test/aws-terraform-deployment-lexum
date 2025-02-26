@@ -1,5 +1,26 @@
 # aws-terraform-deployment-lexum
 
+The use the ecosystem as template and store all specific value related to the aws account where the infrastructure will be deployed.
+
+To deploy:
+- use the version 0.0.1 needs to be used so it will deploy S3 bucket first to be able to store the tfstate
+- upload the tfstate into s3 bucket and deploy with the latest version of this repo
+- clone the repo [ansible-lexum-app](https://github.com/kevind-lexum-technical-test/ansible-lexum-app) and zip the content, and upload to the s3 resource bucket
+- clone the repo [lexum](https://github.com/kevind-lexum-technical-test/lexum-app), build maven and push the image into ecr
+
+The Deployment include the creation of these AWS:
+VPC, EC2 ASG/ALB/TG, S3, KMS, SSM, RDS, CW logs, CW alert, IAM role/policies, ECR
+
+Also pre-commit has been added, to use it please run:
+pre-commit run -a
+To have pre-commit run before pre-commit run:
+pre-commit install
+
+The pre-commit include:
+- yaml check
+- terraform fmt/validate/validate with tflint/validate with trivy
+- detect secret
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -16,7 +37,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_lexum"></a> [lexum](#module\_lexum) | git@github.com:kevind-lexum-technical-test/aws-terraform-ecosystem-lexum.git | 0.0.3 |
+| <a name="module_lexum"></a> [lexum](#module\_lexum) | git@github.com:kevind-lexum-technical-test/aws-terraform-ecosystem-lexum.git | 0.0.4 |
 
 ## Resources
 
@@ -26,6 +47,7 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_account_id"></a> [account\_id](#input\_account\_id) | AWS account id where it will be deployed | `string` | n/a | yes |
 | <a name="input_aws_access_key"></a> [aws\_access\_key](#input\_aws\_access\_key) | AWS Access Key | `string` | n/a | yes |
 | <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | AWS Secret Key | `string` | n/a | yes |
 | <a name="input_rds_db_password"></a> [rds\_db\_password](#input\_rds\_db\_password) | RDS password | `string` | n/a | yes |

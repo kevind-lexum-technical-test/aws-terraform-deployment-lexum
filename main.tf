@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 locals {
-  account_id          = "615299767641"
+  account_id          = var.account_id
   region              = "ca-central-1"
   prefix              = "aws-kev-test"
   tfstate_bucket_name = "tfstate"
