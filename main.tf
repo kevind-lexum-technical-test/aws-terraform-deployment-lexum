@@ -5,13 +5,14 @@ provider "aws" {
 }
 
 locals {
-  account_id          = "615299767641"
+  account_id          = var.account_id
   region              = "ca-central-1"
   prefix              = "aws-kev-test"
   tfstate_bucket_name = "tfstate"
   java_app_name       = "lexum-app"
   java_app_full_name  = "${local.prefix}-${local.java_app_name}"
 }
+
 terraform {
   backend "local" {
     path = "terraform.tfstate"
@@ -19,7 +20,7 @@ terraform {
 }
 
 module "lexum" {
-  source = "git@github.com:kevind-lexum-technical-test/aws-terraform-ecosystem-lexum.git?ref=0.0.3"
+  source = "git@github.com:kevind-lexum-technical-test/aws-terraform-ecosystem-lexum.git?ref=0.0.4"
 
   enabled           = true
   create_s3_tfstate = true
@@ -38,6 +39,7 @@ module "lexum" {
   java_server_image_id      = "ami-05073582a4b03d785"
   java_server_instance_type = "t2.micro"
 
+  sns_alert_email = "kevin.diep94@gmail.com"
 
   rds_identifier  = "lexum-rds"
   rds_db_username = var.rds_db_username
