@@ -12,9 +12,13 @@ locals {
   java_app_name       = "lexum-app"
   java_app_full_name  = "${local.prefix}-${local.java_app_name}"
 }
+
 terraform {
-  backend "local" {
-    path = "terraform.tfstate"
+  backend "s3" {
+    bucket  = "aws-kev-test-tfstate"
+    key     = "terraform.tfstate"
+    region  = "ca-central-1"
+    encrypt = true
   }
 }
 
@@ -22,7 +26,7 @@ module "lexum" {
   source = "git@github.com:kevind-lexum-technical-test/aws-terraform-ecosystem-lexum.git?ref=0.0.3"
 
   enabled           = true
-  create_s3_tfstate = true
+  create_s3_tfstate = false
   prefix            = local.prefix
   account_id        = local.account_id
 
