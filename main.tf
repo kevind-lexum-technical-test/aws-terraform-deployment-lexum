@@ -23,7 +23,7 @@ terraform {
 }
 
 module "lexum" {
-  source = "git@github.com:kevind-lexum-technical-test/aws-terraform-ecosystem-lexum.git?ref=0.0.3"
+  source = "git@github.com:kevind-lexum-technical-test/aws-terraform-ecosystem-lexum.git?ref=0.0.4"
 
   enabled           = true
   create_s3_tfstate = false
@@ -42,6 +42,7 @@ module "lexum" {
   java_server_image_id      = "ami-05073582a4b03d785"
   java_server_instance_type = "t2.micro"
 
+  sns_alert_email = "kevin.diep94@gmail.com"
 
   rds_identifier  = "lexum-rds"
   rds_db_username = var.rds_db_username
