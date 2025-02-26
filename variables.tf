@@ -21,3 +21,9 @@ variable "rds_db_password" {
   type        = string
   sensitive   = true
 }
+
+variable "account_id" {
+  description = "AWS account id where it will be deployed"
+  type        = string
+  sensitive   = false
+}
